@@ -30,7 +30,7 @@ header {
 
 nav ul {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-start; /* Align buttons to the left */
   gap: 20px;
 }
 
@@ -150,7 +150,6 @@ footer {
 /* Hover Animation for Boxes */
 .featured, .articles li {
   transition: transform 0.3s ease;
-  transform: scale(1); /* Ensure default scale is normal */
 }
 
 .featured:hover, .articles li:hover {
@@ -191,4 +190,5 @@ article {
 footer p {
   font-size: 12px;
 }
+
 
