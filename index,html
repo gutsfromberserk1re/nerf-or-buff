@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<script src="animations.js"></script>
+
   <header>
     <nav>
       <ul>
@@ -22,10 +24,12 @@
     <section class="featured">
       <h2>Featured Articles</h2>
       <article>
+      <li class="fade-in">
         <h3>Title of Featured Article 1</h3>
         <p>Short intro or teaser of the featured article...</p>
         <a href="articles/article1.html">Read more</a>
       </article>
+      <li/>
       <article>
         <h3>Title of Featured Article 2</h3>
         <p>Short intro or teaser of the featured article...</p>
