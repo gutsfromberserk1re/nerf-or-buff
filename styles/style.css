@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #f7f7f7;  /* Soft gray background */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -21,45 +21,55 @@ body {
   width: 100%;
   text-align: center;
   padding: 20px 0;
-  background-color: #333;
+  background-color: #4e9fd1;  /* Soft blue header */
   color: white;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
 }
 
 .content {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   max-width: 1200px;
   width: 100%;
   gap: 20px;
   padding: 20px 0;
 }
 
-/* Featured Section */
+/* Featured Section on the Left */
 .featured {
-  flex: 0 0 60%;
+  flex: 0 0 60%; /* Takes up 60% of the width */
 }
 
 .featured h2 {
   font-size: 1.5rem;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .featured .article-box {
   display: flex;
   gap: 20px;
-  background-color: white;
-  border: 1px solid #ccc;
+  background-color: #ffffff; /* White background for article boxes */
+  border: 1px solid #e0e0e0;  /* Soft light gray border */
   padding: 10px;
+  border-radius: 8px;
 }
 
 .featured .article-image {
   width: 200px;
   height: 150px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .featured .article-content h3 {
   font-size: 1.2rem;
+  color: #333;
 }
 
 .featured .article-content p {
@@ -67,14 +77,15 @@ body {
   color: #666;
 }
 
-/* Latest Articles Section */
+/* Latest Articles Section on the Right */
 .latest {
-  flex: 0 0 40%;
+  flex: 0 0 40%; /* Takes up 40% of the width */
 }
 
 .latest h2 {
   font-size: 1.5rem;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .latest-container {
@@ -86,19 +97,22 @@ body {
 .latest .article-box {
   display: flex;
   gap: 20px;
-  background-color: white;
-  border: 1px solid #ccc;
+  background-color: #ffffff; /* White background for article boxes */
+  border: 1px solid #e0e0e0;  /* Soft light gray border */
   padding: 10px;
+  border-radius: 8px;
 }
 
 .latest .article-image {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 150px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .latest .article-content h3 {
   font-size: 1.2rem;
+  color: #333;
 }
 
 .latest .article-content p {
@@ -111,11 +125,12 @@ body {
   display: flex;
   justify-content: flex-start;
   padding: 10px;
-  background-color: #333;
+  background-color: #333; /* Dark background for navbar */
   color: white;
   position: sticky;
   top: 0;
   width: 100%;
+  border-radius: 8px;
 }
 
 .nav-link {
@@ -135,16 +150,17 @@ body {
 }
 
 .contact-button {
-  background-color: #333;
+  background-color: #38b2ac;  /* Teal color for buttons */
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
+  border-radius: 8px;
 }
 
 .contact-button:hover {
-  background-color: #555;
+  background-color: #319c89;  /* Darker teal on hover */
 }
 
 /* Responsive Design */
