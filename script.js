@@ -8,7 +8,8 @@ document.body.classList.add(theme);
 
 // Detect Ctrl + W for theme switch (Desktop)
 window.addEventListener('keydown', function (e) {
-  if (e.ctrlKey && e.key === 'w') {
+  if (e.ctrlKey && e.key === 'D') {
+    
     toggleTheme();
   }
 });
