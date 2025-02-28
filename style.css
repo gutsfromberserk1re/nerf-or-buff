@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;  /* Soft gray background */
+  background-color: #fafafa;  /* Light soft background */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -21,16 +21,40 @@ body {
   width: 100%;
   text-align: center;
   padding: 20px 0;
-  background-color: #4e9fd1;  /* Soft blue header */
+  background-color: #333;  /* Dark background for header */
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
   border-radius: 8px;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin: 0;
 }
 
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nav-link {
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Main content area */
 .content {
   display: flex;
   justify-content: space-between;
@@ -38,11 +62,12 @@ h1 {
   width: 100%;
   gap: 20px;
   padding: 20px 0;
+  margin-top: 20px;
 }
 
-/* Featured Section on the Left */
+/* Featured Section */
 .featured {
-  flex: 0 0 60%; /* Takes up 60% of the width */
+  flex: 0 0 60%;
 }
 
 .featured h2 {
@@ -54,10 +79,11 @@ h1 {
 .featured .article-box {
   display: flex;
   gap: 20px;
-  background-color: #ffffff; /* White background for article boxes */
-  border: 1px solid #e0e0e0;  /* Soft light gray border */
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
   padding: 10px;
   border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .featured .article-image {
@@ -77,9 +103,9 @@ h1 {
   color: #666;
 }
 
-/* Latest Articles Section on the Right */
+/* Latest Articles Section */
 .latest {
-  flex: 0 0 40%; /* Takes up 40% of the width */
+  flex: 0 0 40%;
 }
 
 .latest h2 {
@@ -97,10 +123,11 @@ h1 {
 .latest .article-box {
   display: flex;
   gap: 20px;
-  background-color: #ffffff; /* White background for article boxes */
-  border: 1px solid #e0e0e0;  /* Soft light gray border */
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
   padding: 10px;
   border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .latest .article-image {
@@ -120,28 +147,20 @@ h1 {
   color: #666;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: flex-start;
-  padding: 10px;
-  background-color: #333; /* Dark background for navbar */
+/* Read More Button */
+.read-more {
+  background-color: #38b2ac;
   color: white;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  border-radius: 8px;
-}
-
-.nav-link {
-  margin-right: 20px;
-  text-decoration: none;
-  color: white;
+  border: none;
+  padding: 10px 20px;
   font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 10px;
 }
 
-.nav-link:hover {
-  text-decoration: underline;
+.read-more:hover {
+  background-color: #319c89;
 }
 
 /* Contact Us Button */
@@ -150,7 +169,7 @@ h1 {
 }
 
 .contact-button {
-  background-color: #38b2ac;  /* Teal color for buttons */
+  background-color: #38b2ac;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -160,7 +179,7 @@ h1 {
 }
 
 .contact-button:hover {
-  background-color: #319c89;  /* Darker teal on hover */
+  background-color: #319c89;
 }
 
 /* Responsive Design */
