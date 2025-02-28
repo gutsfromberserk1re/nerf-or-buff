@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #1F1F1F;
     color: #fff;
     padding: 20px 0;
     position: fixed;
@@ -82,7 +82,7 @@ nav ul li a:hover {
 
 .featured-article-box {
     display: flex;
-    background-color: #373C41;
+    background-color: #202225;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -128,7 +128,7 @@ nav ul li a:hover {
 
 .article-box {
     display: flex;
-    background-color: #7F8992;
+    background-color: #202225;
     padding: 15px;
     border-radius: 8px;
 }
@@ -157,7 +157,7 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: #1F1F1F;
     color: #fff;
     text-align: center;
     padding: 15px;
