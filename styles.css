@@ -18,7 +18,8 @@ header {
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;  /* Center the title */
+    flex-direction: column;
+    align-items: center;
 }
 
 .header-container {
@@ -34,10 +35,14 @@ h1 {
     margin: 0;
 }
 
+nav {
+    margin-top: 10px; /* Add space between the title and nav buttons */
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 10px;
     margin: 0;
     padding: 0;
 }
@@ -50,6 +55,8 @@ nav ul li a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
+    font-size: 14px; /* Smaller font size for nav buttons */
+    padding: 8px 12px;
     transition: color 0.3s;
 }
 
@@ -57,46 +64,11 @@ nav ul li a:hover {
     color: #ccc;
 }
 
-/* Position the nav buttons at the bottom-left */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 15px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-
-.nav-buttons {
-    position: fixed;
-    bottom: 10px; /* Distance from bottom */
-    left: 10px;  /* Distance from the left */
-    display: flex;
-    gap: 15px;
-    z-index: 100;
-}
-
-.nav-buttons a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 8px 15px;
-    background-color: #444;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.nav-buttons a:hover {
-    background-color: #555;
-}
-
 /* Main Content */
 .content {
     display: flex;
     justify-content: space-between;
-    margin-top: 80px; /* Space for fixed header */
+    margin-top: 120px; /* Space for fixed header and nav */
     padding: 20px;
 }
 
@@ -223,4 +195,5 @@ footer {
         gap: 10px;
     }
 }
+
 
