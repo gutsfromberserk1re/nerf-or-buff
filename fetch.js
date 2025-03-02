@@ -1,49 +1,66 @@
-document.addEventListener("DOMContentLoaded", async () => {
-    // Function to fetch article data (title, preview text, and image) from an article
-    async function fetchArticleData(articlePath, titleSelector, contentSelector, imageSelector, sentenceCount = 3) {
-        try {
-            const response = await fetch(articlePath);
-            if (!response.ok) throw new Error(`Failed to load ${articlePath}`);
+// JavaScript to dynamically fetch the featured article and latest articles
 
-            const text = await response.text();
+window.addEventListener("DOMContentLoaded", () => {
+  // Function to fetch article content
+  async function fetchArticleContent(articleFile, maxParagraphs) {
+    try {
+      const response = await fetch(`articles/${articleFile}`);
+      const articleText = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(articleText, "text/html");
 
-            // Create a temporary DOM element to parse the HTML
-            const tempDiv = document.createElement("div");
-            tempDiv.innerHTML = text;
+      // Extract title and paragraphs
+      const title = doc.querySelector("h1") ? doc.querySelector("h1").textContent : "No title available";
+      const paragraphs = doc.querySelectorAll("p");
+      
+      // Get a limited number of paragraphs (for preview)
+      let previewText = "";
+      for (let i = 0; i < Math.min(paragraphs.length, maxParagraphs); i++) {
+        previewText += paragraphs[i].textContent + " ";
+      }
 
-            // Extract title from <h1> or <h2> (fallback: first <p> sentence)
-            let titleMatch = tempDiv.querySelector("h1, h2");
-            let articleTitle = titleMatch ? titleMatch.textContent.trim() : "";
+      // Get the first image
+      const firstImage = doc.querySelector("img") ? doc.querySelector("img").src : "default-image.jpg";
 
-            // Extract <p> text
-            let paragraphs = Array.from(tempDiv.querySelectorAll("p")).map(p => p.textContent.trim());
-            let articleText = paragraphs.length ? paragraphs.join(" ") : "No content available.";
-
-            // Get the first few sentences
-            let previewText = articleText.split(". ").slice(0, sentenceCount).join(". ") + ".";
-
-            // Extract first image or set a default
-            let image = tempDiv.querySelector("img") ? tempDiv.querySelector("img").src : "https://via.placeholder.com/150";
-
-            // Update the page with extracted content
-            document.querySelector(titleSelector).innerHTML = articleTitle || "Untitled Article";
-            document.querySelector(contentSelector).innerHTML = previewText;
-            document.querySelector(imageSelector).src = image;
-
-        } catch (error) {
-            console.error(`Error loading ${articlePath}:`, error);
-            document.querySelector(titleSelector).innerHTML = "Error loading title.";
-            document.querySelector(contentSelector).innerHTML = "Error loading content.";
-            document.querySelector(imageSelector).src = "https://via.placeholder.com/150";
-        }
+      return { title, preview: previewText.trim(), firstImage };
+    } catch (error) {
+      console.error("Error fetching article:", error);
+      return { title: "Error", preview: "Error fetching content", firstImage: "default-image.jpg" };
     }
+  }
 
-    // Fetch Featured Article
-    fetchArticleData("articles/articleX.html", ".featured-article-title", ".featured-article-content", ".featured-image");
+  // Fetch Featured Article
+  async function fetchFeaturedArticle() {
+    const featuredArticle = await fetchArticleContent("featured-article.html", 10); // Fetch 10 paragraphs for featured article
+    const featuredArticleSection = document.querySelector(".featured-article-box");
+    const featuredTitle = featuredArticleSection.querySelector(".featured-article-title");
+    const featuredPreview = featuredArticleSection.querySelector(".featured-article-content");
+    const featuredImage = featuredArticleSection.querySelector(".featured-image");
 
-    // Fetch Latest Articles
-    const latestArticles = [1, 2, 3, 4, 5];  // Modify this list if you add more articles
-    latestArticles.forEach((articleNumber, index) => {
-        fetchArticleData(`articles/article${articleNumber}.html`, `.latest-article-title-${index + 1}`, `.latest-article-${index + 1}`, `.latest-article-image-${index + 1}`);
-    });
+    featuredTitle.textContent = featuredArticle.title;
+    featuredPreview.textContent = featuredArticle.preview;
+    featuredImage.src = featuredArticle.firstImage;
+  }
+
+  // Fetch Latest Articles
+  async function fetchLatestArticles() {
+    const latestArticles = [ "article1.html", "article2.html", "article3.html", "article4.html", "article5.html" ];
+    const latestArticleSections = document.querySelectorAll(".article-box");
+
+    for (let i = 0; i < latestArticles.length; i++) {
+      const article = await fetchArticleContent(latestArticles[i], 5); // Fetch 5 paragraphs for latest articles
+      const articleSection = latestArticleSections[i];
+      const articleTitle = articleSection.querySelector(".latest-article-title-" + (i + 1));
+      const articlePreview = articleSection.querySelector(".latest-article-" + (i + 1));
+      const articleImage = articleSection.querySelector(".article-image");
+
+      articleTitle.textContent = article.title;
+      articlePreview.textContent = article.preview;
+      articleImage.src = article.firstImage;
+    }
+  }
+
+  // Initialize fetching process
+  fetchFeaturedArticle();
+  fetchLatestArticles();
 });
