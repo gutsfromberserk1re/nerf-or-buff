@@ -65,6 +65,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     // Fetch the featured article manually as before
     // Example: You can manually set the featured article like this:
-    fetchArticleData("articles/featuredArticle.html", ".featured-article-title", ".featured-article-content", ".featured-article-image");
+    fetchArticleData("articles/farticle.html", ".featured-article-title", ".featured-article-content", ".featured-article-image");
 });
 
