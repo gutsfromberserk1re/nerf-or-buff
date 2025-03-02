@@ -6,26 +6,37 @@
     <title>NVIDIA & Intel Stocks Update</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
+            color: #333;
         }
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 20px auto;
             background: #fff;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .header {
             text-align: center;
             border-bottom: 2px solid #000;
-            padding-bottom: 10px;
+            padding-bottom: 20px;
         }
         .header h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 28px;
+        }
+        .header p {
+            color: #888;
+            font-size: 16px;
+        }
+        .content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
         }
         .content img {
             width: 100%;
@@ -33,17 +44,79 @@
             margin-top: 10px;
         }
         .article {
-            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .article h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .article p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .article img {
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
         .sidebar {
-            background: #e8e8e8;
-            padding: 15px;
-            margin-top: 20px;
+            background: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         .sidebar h3 {
             margin-top: 0;
+            font-size: 22px;
+            color: #333;
+        }
+        .sidebar p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .sidebar a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            margin-top: 30px;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Mobile Styling */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                margin-top: 20px;
+            }
         }
     </style>
+    <!-- Add Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -52,42 +125,76 @@
             <p>February 2025 | Market Insights</p>
         </div>
         <div class="content">
-            <img src="LevelUp-News/images/stock.jepg" alt="Stock Market Image">
-            <div class="article">
-                <h2>Is NVIDIA Still King of AI Chips?</h2>
-                <p>By Moon | Level Up News</p>
-                <p>NVIDIA has experienced an incredible surge in its stock value over the past year, largely driven by the explosive growth in AI technology and the 
-                    company’s expansion into data centers. As AI applications become more integral to industries across the globe, NVIDIA’s cutting-edge GPUs have 
-                    become essential in powering the next wave of machine learning, deep learning, and AI-driven innovations. Additionally, the company has made 
-                    significant strides in its data center business, securing major deals with cloud providers and enterprises. This has positioned NVIDIA as a 
-                    dominant player in both the gaming and enterprise sectors. Recently, NVIDIA announced the next-generation RTX 50 series, which promises to 
-                    deliver even more powerful graphics processing capabilities. This, combined with their strategic AI partnerships with companies like Google and 
-                    Microsoft, has only fueled further optimism among investors. As a result, many analysts remain highly bullish on NVIDIA’s future growth potential. 
-                    However, with its stock already at a premium, some investors are wondering if there’s still room for growth or if the price might be due for a correction. 
-                    Regardless, NVIDIA’s role in shaping the future of AI and computing is undeniable, and the company is expected to continue playing a central role in technological advancements.</p>
-                <p>However, concerns over semiconductor shortages and increasing competition from AMD and Intel may pose challenges. Will NVIDIA sustain its dominance?</p>
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <div class="article">
+                    <h2>Is NVIDIA Still King of AI Chips?</h2>
+                    <p><em>By Moon | Level Up News</em></p>
+                    <img src="LevelUp-News/images/stock.jpeg" alt="Stock Market Image">
+                    <p>NVIDIA has experienced an incredible surge in its stock value over the past year, largely driven by the explosive growth in AI technology and the 
+                        company’s expansion into data centers. As AI applications become more integral to industries across the globe, NVIDIA’s cutting-edge GPUs have 
+                        become essential in powering the next wave of machine learning, deep learning, and AI-driven innovations. Additionally, the company has made 
+                        significant strides in its data center business, securing major deals with cloud providers and enterprises. This has positioned NVIDIA as a 
+                        dominant player in both the gaming and enterprise sectors. Recently, NVIDIA announced the next-generation RTX 50 series, which promises to 
+                        deliver even more powerful graphics processing capabilities. This, combined with their strategic AI partnerships with companies like Google and 
+                        Microsoft, has only fueled further optimism among investors. As a result, many analysts remain highly bullish on NVIDIA’s future growth potential. 
+                        However, with its stock already at a premium, some investors are wondering if there’s still room for growth or if the price might be due for a correction.</p>
+                </div>
+                <div class="article">
+                    <h2>Intel's Comeback: Can It Challenge AMD & NVIDIA?</h2>
+                    <p><em>By Shihab | Level Up News</em></p>
+                    <img src="LevelUp-News/images/intel.jpg" alt="Intel Stock Market Image">
+                    <p>Intel has been making a lot of progress with its new Meteor Lake processors, hoping to regain some of the market share it’s lost in both the CPU and GPU sectors. The company has been putting a lot of money into improving chip production and boosting AI capabilities, which has got investors feeling more hopeful. Intel is focusing on making its processors more energy-efficient while also boosting their overall performance, aiming to challenge strong competitors like AMD and NVIDIA. Even though Intel had a strong financial quarter, some analysts still have doubts about whether it can catch up with NVIDIA, especially in the field of AI.</p>
+                </div>
+                <div class="chart-container">
+                    <h3>Stock Performance Comparison: NVIDIA vs Intel</h3>
+                    <canvas id="stockChart"></canvas>
+                </div>
             </div>
-            <div class="article">
-                 <img src="LevelUp-News/images/intell.jpg" alt="Stock Market Image">
-                <h2>Intel's Comeback: Can It Challenge AMD & NVIDIA?</h2>
-                <p>By shihab | Level Up News</p>
-                <p>Intel has been making a lot of progress with its new Meteor Lake processors, hoping to regain some of the market share it’s lost in both the CPU and GPU sectors. The company has been putting a lot of money into improvin
-                    g chip production and boosting AI capabilities, which has got investors feeling more hopeful. Intel is focusing on making its processors more energy-eff
-                    icient while also boosting their overall performance, aiming to challenge strong competitors like AMD and NVIDIA. Even though Intel had a st
-                    rong financial quarter, some analysts still have doubts about whether it can catch up with NVIDIA, especially i
-                    n the field of AI. As we head into 2025, many are wondering: will this be the year Intel makes its big comeback, or will other companies continue to l
-                    ead the way? Only time will tell. When it comes to investing in Intel stocks, some experts believe it’s worth considering due to the company’s strong foundations 
-                    and recent innovations. However, with ongoing competition and uncertainties about AI leadership, it’s important to evaluate your risk tolerance before deciding whether to buy. For some, it m
-                    ight be a good time to buy on the dip, but for others, the uncertainty could mean holding off for now.</p>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>What's New</h3>
+                <p><strong>Market Shifts:</strong> AI stocks continue to surge, but is a correction on the horizon?</p>
+                <p><strong>Tech Trends:</strong> AMD’s next-gen GPU roadmap reveals competitive pricing.</p>
+                <p><strong>Investment Insights:</strong> Which tech stocks should you watch this quarter?</p>
+                <a href="#">Read more...</a>
             </div>
-        </div>
-        <div class="sidebar">
-            <h3>What's New</h3>
-            <p><strong>Market Shifts:</strong> AI stocks continue to surge, but is a correction on the horizon?</p>
-            <p><strong>Tech Trends:</strong> AMD’s next-gen GPU roadmap reveals competitive pricing.</p>
-            <p><strong>Investment Insights:</strong> Which tech stocks should you watch this quarter?</p>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Level Up News | All Rights Reserved</p>
+    </footer>
+
+    <!-- Chart.js Script -->
+    <script>
+        const ctx = document.getElementById('stockChart').getContext('2d');
+        const stockChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'NVIDIA',
+                    data: [300, 320, 340, 350, 370, 390, 420],
+                    borderColor: '#4CAF50',
+                    fill: false
+                }, {
+                    label: 'Intel',
+                    data: [120, 125, 130, 135, 140, 145, 150],
+                    borderColor: '#2196F3',
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
-
