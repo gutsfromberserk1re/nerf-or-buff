@@ -86,12 +86,14 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .featured-image {
     width: 100%;
     max-width: 300px;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     margin-right: 20px;
     border-radius: 8px;
 }
@@ -131,6 +133,7 @@ nav ul li a:hover {
     background-color: #363636;
     padding: 15px;
     border-radius: 8px;
+    overflow: hidden;
 }
 
 .article-image {
