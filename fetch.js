@@ -55,13 +55,13 @@ window.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    // Fetch Latest Articles (5 sentences each)
+    // Fetch Latest Articles (1 sentence each, reduced by 4)
     async function fetchLatestArticles() {
         const latestArticles = [ "article1.html", "article2.html", "article3.html", "article4.html", "article5.html" ];
         const latestArticleSections = document.querySelectorAll(".article-box");
 
         for (let i = 0; i < latestArticles.length; i++) {
-            const article = await fetchArticleContent(latestArticles[i], 5); // Fetch 5 sentences for latest articles
+            const article = await fetchArticleContent(latestArticles[i], 1); // Fetch 1 sentence for latest articles
             const articleSection = latestArticleSections[i];
             const articleTitle = articleSection.querySelector(".latest-article-title-" + (i + 1));
             const articlePreview = articleSection.querySelector(".latest-article-" + (i + 1));
@@ -83,3 +83,4 @@ window.addEventListener("DOMContentLoaded", () => {
     fetchFeaturedArticle();
     fetchLatestArticles();
 });
+
